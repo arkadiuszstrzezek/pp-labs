@@ -20,5 +20,4 @@ Laboratoria bazują na rzeczywistych scenariuszach implementacji mechanizmów ko
 - Centralne zarządzanie środowiskami
 - Automatyzacja procesów tworzenia środowisk
 - Monitoring i alerty
-- Routing i kontrola dostępu
 
