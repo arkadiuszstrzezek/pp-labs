@@ -42,7 +42,7 @@ Poniżej znajdziesz kompletny, praktyczny przewodnik od utworzenia zespołu w Mi
 Poniżej krok po kroku w Power Apps Studio w Teams.
 
 ### 1. Struktura aplikacji
-- **Ekran główny (Home)**: nagłówek + przycisk „Dodaj pojazd” + galeria listująca pojazdy.
+- **Ekran główny (HomeScreen)**: nagłówek + przycisk „Dodaj pojazd” + galeria listująca pojazdy.
 - **Ekran edycji/dodawania (EditForm)**: formularz powiązany z tabelą Vehicles.
 - **Ekran detali (Details)**: opcjonalnie — szczegóły pojazdu.
 
@@ -55,20 +55,20 @@ Poniżej krok po kroku w Power Apps Studio w Teams.
    - `ThisItem.Status.Value` (jeśli Choice)
 
 ### 3. Dodać formularz (edit/new)
-1. Wstaw **Edit form** na osobny ekran (np. `EditVehicleForm`).  
+1. Wstaw **Edit form** na osobny ekran (np. `EditDetailFormScreen`).  
 2. Ustaw właściwość `DataSource` formularza na `Vehicles`.  
 3. Wybierz pola, które mają się pojawić w formularzu (Name, RegistrationNumber, Make, Model, Year, Status, Notes).  
 4. Dodaj przyciski: **Save** i **Cancel**.  
-   - `Save` → akcja: `SubmitForm(EditForm1)`  
-   - `Cancel` → `ResetForm(EditForm1); Navigate(HomeScreen, ScreenTransition.None)`
+   - `Save` → akcja: `SubmitForm(Form1)`  
+   - `Cancel` → `ResetForm(Form1); Navigate(HomeScreen, ScreenTransition.None)`
 
 ### 4. Przejścia i logika
 - Kliknięcie elementu w galerii: `OnSelect` → `Set(varSelectedVehicle, ThisItem); Navigate(DetailScreen, ScreenTransition.Fade)`  
-- Kliknięcie „Add new”: `NewForm(EditForm1); Navigate(EditVehicleForm, ScreenTransition.None)`  
-- Kliknięcie „Edit” w detalu: `EditForm(EditForm1); Navigate(EditVehicleForm, ScreenTransition.None)`  
+- Kliknięcie „Add new”: `NewForm(Form1); Navigate(EditDetailFormScreen, ScreenTransition.None)`  
+- Kliknięcie „Edit” w detalu: `EditForm(Form1); Navigate(EditDetailFormScreen, ScreenTransition.None)`  
 
 ### 5. Etykiety i wygląd
-Wstaw etykietę nagłówkową na ekranie: `Text = "FleetTracker — Pojazdy"`. Dostosuj czcionki i ułożenie. Nie zapomnij zapisać aplikacji regularnie (File → Save).
+Wstaw etykietę nagłówkową na ekranie.f Dostosuj czcionki i ułożenie. Nie zapomnij zapisać aplikacji regularnie (File → Save).
 
 ---
 
@@ -86,23 +86,8 @@ Wstaw etykietę nagłówkową na ekranie: `Text = "FleetTracker — Pojazdy"`. D
 ---
 
 ## G. Promocja środowiska do produkcyjnego (ALM)
-### Opcja 1 — Eksport/import rozwiązania
-1. W DVfT utwórz **Solution** i dodaj tabelę Vehicles, formularze, widoki, aplikację Canvas.  
-2. Eksportuj rozwiązanie jako plik (Managed lub Unmanaged).  
-3. W środowisku produkcyjnym Dataverse zaimportuj plik.  
-4. Skonfiguruj uprawnienia i publikuj aplikację.
-
 ### Opcja 2 — Upgrade środowiska DVfT
 Administrator może zaktualizować środowisko Teams do pełnego Dataverse w centrum admina Power Platform.
-
----
-
-## H. Checklist przed promocją
-- [ ] Wszystkie kolumny wspierane w Dataverse
-- [ ] Rozwiązanie eksportowane jako managed
-- [ ] Role i uprawnienia skonfigurowane
-- [ ] Konektory działają poprawnie
-- [ ] Plan backup/restore i monitoring
 
 ---
 
