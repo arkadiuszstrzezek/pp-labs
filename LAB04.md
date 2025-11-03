@@ -43,7 +43,7 @@ Poniżej krok po kroku w Power Apps Studio w Teams.
 
 ### 1. Struktura aplikacji
 - **Ekran główny (HomeScreen)**: nagłówek + przycisk „Dodaj pojazd” + galeria listująca pojazdy.
-- **Ekran edycji/dodawania (EditForm)**: formularz powiązany z tabelą Vehicles.
+- **Ekran edycji/dodawania (EditDetailFormScreen)**: formularz powiązany z tabelą Vehicles.
 - **Ekran detali (Details)**: opcjonalnie — szczegóły pojazdu.
 
 ### 2. Dodać galerię powiązaną z tabelą Dataverse
@@ -63,12 +63,13 @@ Poniżej krok po kroku w Power Apps Studio w Teams.
    - `Cancel` → `ResetForm(Form1); Navigate(HomeScreen, ScreenTransition.None)`
 
 ### 4. Przejścia i logika
-- Kliknięcie elementu w galerii: `OnSelect` → `Set(varSelectedVehicle, ThisItem); Navigate(DetailScreen, ScreenTransition.Fade)`  
+- Kliknięcie elementu w galerii: `OnSelect` → `Set(varSelectedVehicle, ThisItem); Navigate(EditDetailFormScreen, ScreenTransition.Fade)`  
 - Kliknięcie „Add new”: `NewForm(Form1); Navigate(EditDetailFormScreen, ScreenTransition.None)`  
 - Kliknięcie „Edit” w detalu: `EditForm(Form1); Navigate(EditDetailFormScreen, ScreenTransition.None)`  
+- Ustaw Właściwość Formularza Form1 `Item` → `Gallery1.Selected`
 
 ### 5. Etykiety i wygląd
-Wstaw etykietę nagłówkową na ekranie.f Dostosuj czcionki i ułożenie. Nie zapomnij zapisać aplikacji regularnie (File → Save).
+Wstaw etykietę nagłówkową na ekranie. Dostosuj czcionki i ułożenie. Nie zapomnij zapisać aplikacji regularnie (File → Save).
 
 ---
 
@@ -88,6 +89,10 @@ Wstaw etykietę nagłówkową na ekranie.f Dostosuj czcionki i ułożenie. Nie z
 ## G. Promocja środowiska do produkcyjnego (ALM)
 ### Opcja 2 — Upgrade środowiska DVfT
 Administrator może zaktualizować środowisko Teams do pełnego Dataverse w centrum admina Power Platform.
+1. Przejdź do Centrum Administracyjne Power Platfrom https://admin.powerplatform.microsoft.com/
+2. Wybierz **Zarządzaj** -> **Środowiska** a następnie zaznacz utworzone środowisko Microsoft Teams
+3. Wybierz opcję **upgrade**
+4. Podnieś środowisko do pełnego planu Dataverse
 
 ---
 
