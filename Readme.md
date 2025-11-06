@@ -8,6 +8,8 @@ Repozytorium zawiera zestaw laboratoriów dotyczących implementacji mechanizmó
 1. **LAB01** - Konfiguracja CoE Starter Kit i Power BI dashboard
 2. **LAB02** - Implementacja procesu requestów środowisk przez CoE
 3. **LAB03** - Tworzenie alertów monitorujących
+4. **LAB04** - Dataverse for Teams + prosta Canvas App do zarządzania pojazdami
+5. **LAB05** - Testowanie mechanizmów administracyjnych Power Platform
 
 ## Wymagania wstępne
 - Dostęp administratora do tenant Microsoft 365
